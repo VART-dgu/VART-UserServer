@@ -1,5 +1,6 @@
 package com.example.vrt.domain.gallery.dto;
 
+import com.example.vrt.domain.gallery.domain.Gallery;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,12 +15,3 @@ public class GalleryDTO {
     private String description;
     private Integer visitCount;
 }
-
-/*
-{
-    "id" : "1",
-    "artist" : "peter",
-    "description" : "hi",
-    "visitCount" : 1
-}
- */
