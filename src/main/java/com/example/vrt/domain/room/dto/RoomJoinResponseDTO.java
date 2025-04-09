@@ -11,4 +11,6 @@ public class RoomJoinResponseDTO {
     private String hostUserEndpoint;
     private boolean isHost;
     private String mapFileURL;
+    private int currentParticipants;
+    private int maxParticipants;
 }
