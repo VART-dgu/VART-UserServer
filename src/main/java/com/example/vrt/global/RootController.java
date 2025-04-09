@@ -10,10 +10,4 @@ public class RootController {
     public ApiResponse<String> healthCheck() {
         return ApiResponse.onSuccess("I'm healthy!");
     }
-
-    @GetMapping("/")
-    public ApiResponse<String> defaultCheck() {
-        return ApiResponse.onSuccess("I'm healthy!");
-    }
-
 }
