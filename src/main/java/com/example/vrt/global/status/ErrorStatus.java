@@ -7,7 +7,6 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@AllArgsConstructor
 public enum ErrorStatus implements BaseErrorCode {
 
     // 가장 일반적인 응답
@@ -96,6 +95,12 @@ public enum ErrorStatus implements BaseErrorCode {
                 .isSuccess(false)
                 .httpStatus(httpStatus)
                 .build();
+    }
+
+    ErrorStatus(HttpStatus httpStatus, String code, String message) {
+        this.httpStatus = httpStatus;
+        this.code = code;
+        this.message = message;
     }
 
 }

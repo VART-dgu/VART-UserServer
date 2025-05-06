@@ -8,7 +8,6 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@AllArgsConstructor
 public enum SuccessStatus implements BaseCode {
 
     // 일반적인 응답
@@ -37,5 +36,11 @@ public enum SuccessStatus implements BaseCode {
                 .isSuccess(true)
                 .httpStatus(httpStatus)
                 .build();
+    }
+
+    SuccessStatus(HttpStatus httpStatus, String code, String message) {
+        this.httpStatus = httpStatus;
+        this.code = code;
+        this.message = message;
     }
 }
