@@ -16,4 +16,10 @@ public class UserService {
         User user = new User(dto.getId(), dto.getName());
         userRepository.save(user);
     }
+
+    public boolean login(UserDTO dto) {
+        return userRepository.existsById(dto.getId());
+    }
+
+
 }

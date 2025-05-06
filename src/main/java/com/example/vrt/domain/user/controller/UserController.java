@@ -25,4 +25,19 @@ public class UserController {
         );
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<ApiResponse<String>> loginUser(@RequestBody UserDTO dto) {
+        boolean exists = userService.login(dto);
+        if (exists) {
+            return ResponseEntity.ok(new ApiResponse<>(true, "COMMON200", "로그인에 성공하였습니다.", ""));
+        } else {
+            return ResponseEntity.status(404).body(new ApiResponse<>(false, "USER404", "존재하지 않는 사용자입니다.", ""));
+        }
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<ApiResponse<String>> logoutUser(@RequestBody UserDTO dto) {
+        return ResponseEntity.ok(new ApiResponse<>(true, "COMMON200", "로그아웃에 성공하였습니다.", ""));
+    }
 }
