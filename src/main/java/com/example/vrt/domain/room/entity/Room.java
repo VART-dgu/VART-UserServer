@@ -1,14 +1,10 @@
 package com.example.vrt.domain.room.entity;
 
-import jakarta.persistence.ElementCollection;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.vrt.domain.gallery.domain.Gallery;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +18,9 @@ public class Room {
     @Id
     private String id; // roomId
 
-    private String galleryId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "gallery_id", nullable = false)
+    private Gallery gallery;
 
     private String hostUserId;
     private String hostUserEndpoint;
