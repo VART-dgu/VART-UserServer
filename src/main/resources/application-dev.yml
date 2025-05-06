@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mariadb://svc.sel4.cloudtype.app:32538/your_db_name?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mariadb://svc.sel4.cloudtype.app:30724/userDB
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: org.mariadb.jdbc.Driver
