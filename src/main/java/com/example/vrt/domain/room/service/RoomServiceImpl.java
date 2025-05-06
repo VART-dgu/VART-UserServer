@@ -42,7 +42,7 @@ public class RoomServiceImpl implements RoomService {
         // 6. 응답 DTO 생성 및 반환
         return new RoomJoinResponseDTO(
                 room.getId(),
-                room.getGalleryId(),
+                room.getGallery().getId(),
                 room.getHostUserEndpoint(),
                 isHost,
                 room.getMapFileURL(),
