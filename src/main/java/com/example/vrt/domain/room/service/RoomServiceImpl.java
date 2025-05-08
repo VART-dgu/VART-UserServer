@@ -2,6 +2,8 @@ package com.example.vrt.domain.room.service;
 
 import com.example.vrt.domain.room.dto.RoomJoinRequestDTO;
 import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
+import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
+import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.entity.Room;
 import com.example.vrt.domain.room.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -50,4 +52,14 @@ public class RoomServiceImpl implements RoomService {
                 room.getMaxParticipants()
         );
     }
+
+//    public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
+//
+//
+//        //2. 소켓 연결 제거
+//
+//        //3. 호스트라면 모든 사용자에게 핑 테스트, 가장 낮은 핑을 새로운 호스트로 선정
+//
+//        //4. 새로운 호스트 broadcast
+//    }
 }

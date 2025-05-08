@@ -2,6 +2,8 @@ package com.example.vrt.domain.room.controller;
 
 import com.example.vrt.domain.room.dto.RoomJoinRequestDTO;
 import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
+import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
+import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,4 +21,10 @@ public class RoomController {
         RoomJoinResponseDTO responseDTO = roomService.joinRoom(requestDTO);
         return ResponseEntity.ok(responseDTO);
     }
+
+//    @PostMapping("/quit")
+//    public ResponseEntity<RoomQuitResponseDTO> quitRoom(@RequestBody RoomQuitRequestDTO requestDTO) {
+//        RoomQuitResponseDTO responseDTO;
+//    }
+
 }
