@@ -53,13 +53,13 @@ public class RoomServiceImpl implements RoomService {
         );
     }
 
-//    public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
-//
-//
-//        //2. 소켓 연결 제거
-//
-//        //3. 호스트라면 모든 사용자에게 핑 테스트, 가장 낮은 핑을 새로운 호스트로 선정
-//
-//        //4. 새로운 호스트 broadcast
-//    }
+    public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
+
+
+        //2. 소켓 연결 제거
+
+        //3. 호스트라면 모든 사용자에게 핑 테스트, 가장 낮은 핑을 새로운 호스트로 선정
+
+        //4. 새로운 호스트 broadcast
+    }
 }
