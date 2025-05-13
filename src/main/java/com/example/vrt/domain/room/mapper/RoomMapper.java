@@ -1,6 +1,6 @@
 package com.example.vrt.domain.room.mapper;
 
-import com.example.vrt.domain.gallery.dto.RoomDTO;
+import com.example.vrt.domain.room.dto.RoomDTO;
 import com.example.vrt.domain.room.entity.Room;
 
 public class RoomMapper {

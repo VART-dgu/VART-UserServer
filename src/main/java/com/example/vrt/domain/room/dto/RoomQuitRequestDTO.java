@@ -8,4 +8,5 @@ public class RoomQuitRequestDTO {
     String galleryId;
     String userId;
     Boolean isHost;
+    String sessionId;
 }

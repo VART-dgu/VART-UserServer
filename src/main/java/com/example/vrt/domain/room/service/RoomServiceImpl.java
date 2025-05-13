@@ -1,19 +1,21 @@
 package com.example.vrt.domain.room.service;
 
-import com.example.vrt.domain.room.dto.RoomJoinRequestDTO;
-import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
-import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
-import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
+import com.example.vrt.domain.room.dto.*;
 import com.example.vrt.domain.room.entity.Room;
+import com.example.vrt.domain.room.mapper.RoomMapper;
 import com.example.vrt.domain.room.repository.RoomRepository;
+import com.example.vrt.global.PingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
+    private final PingService pingService;
 
     @Override
     public RoomJoinResponseDTO joinRoom(RoomJoinRequestDTO requestDTO) {
@@ -53,13 +55,24 @@ public class RoomServiceImpl implements RoomService {
         );
     }
 
-    public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
-
-
-        //2. 소켓 연결 제거
-
-        //3. 호스트라면 모든 사용자에게 핑 테스트, 가장 낮은 핑을 새로운 호스트로 선정
-
-        //4. 새로운 호스트 broadcast
-    }
+//    public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
+//        //1. 사용자 제거
+//        RoomDTO roomDTO = RoomMapper.toRoomDTO(roomRepository.findById(requestDTO.getRoomId())
+//                .orElseThrow(() -> new NoSuchElementException("Room을 찾을 수 없음")));
+//
+//        //3. 호스트라면 모든 사용자에게 핑 테스트, 가장 낮은 핑을 새로운 호스트로 선정
+//        if(requestDTO.getIsHost()){
+//            String newHostId = null;
+//            long bestLatency = Long.MAX_VALUE;
+//            for(String s : roomDTO.getParticipantIDs()){
+//                long latency = pingService.ping(s);
+//                if(latency < bestLatency){
+//                    bestLatency = latency;
+//                    newHostId = participantID;
+//                }
+//            }
+//        }
+//
+//        //3. 새로운 호스트 broadcast
+//    }
 }

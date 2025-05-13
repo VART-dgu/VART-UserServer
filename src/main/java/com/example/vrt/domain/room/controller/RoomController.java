@@ -5,6 +5,7 @@ import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
 import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
 import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.service.RoomService;
+import com.example.vrt.global.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @RequiredArgsConstructor
 public class RoomController {
     private final RoomService roomService;
+    private final SessionManager sessionManager;
 
     @PostMapping("/join")
     public ResponseEntity<RoomJoinResponseDTO> joinRoom(@RequestBody RoomJoinRequestDTO requestDTO) {
@@ -26,9 +28,8 @@ public class RoomController {
 
 //    @PostMapping("/quit")
 //    public ResponseEntity<RoomQuitResponseDTO> quitRoom(@RequestBody RoomQuitRequestDTO requestDTO) {
-//        RoomQuitResponseDTO responseDTO;
-//
-//
+//        //roomService.quitRoom(requestDTO);
+//        sessionManager.disconnectSession(requestDTO.getSessionId());
 //    }
 
 }
