@@ -37,4 +37,5 @@ public class RoomDTO {
 
     public boolean isHost(String userId) {
         return userId.equals(this.hostUserId);
+    }
 }
