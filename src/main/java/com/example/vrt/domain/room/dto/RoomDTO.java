@@ -15,4 +15,26 @@ public class RoomDTO {
     private int maxParticipants;
     private int currentParticipants;
     private List<String> participantIDs;
+
+    // --- 비즈니스 메서드 ---
+
+    public void addParticipant(String userId) {
+        if (!participantIDs.contains(userId)) {
+            participantIDs.add(userId);
+            currentParticipants++;
+        }
+    }
+
+    public void removeParticipant(String userId) {
+        if (participantIDs.remove(userId)) {
+            currentParticipants--;
+        }
+    }
+
+    public boolean isFull() {
+        return currentParticipants >= maxParticipants;
+    }
+
+    public boolean isHost(String userId) {
+        return userId.equals(this.hostUserId);
 }
