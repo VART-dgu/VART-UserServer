@@ -2,16 +2,11 @@ package com.example.vrt.domain.room.controller;
 
 import com.example.vrt.domain.room.dto.RoomJoinRequestDTO;
 import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
-import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
-import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.service.RoomService;
-import com.example.vrt.global.SessionManager;
+import com.example.vrt.global.websocket.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.socket.WebSocketSession;
-
-import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
 @RequestMapping("/room")

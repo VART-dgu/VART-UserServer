@@ -11,6 +11,22 @@ public class RoomMapper {
                 .maxParticipants(room.getMaxParticipants())
                 .currentParticipants(room.getCurrentParticipants())
                 .participantIDs(room.getParticipantIDs())
+                .hostUserEndpoint(room.getHostUserEndpoint())
+                .mapFileURL(room.getMapFileURL())
+                .build();
+    }
+}
+
+    public static Room toRoom(RoomDTO roomDTO) {
+        return Room.builder()
+                .id(roomDTO.getId())
+                .hostUserId(roomDTO.getHostUserId())
+                .hostUserEndpoint(roomDTO.getHostUserEndpoint())
+                .maxParticipants(roomDTO.getMaxParticipants())
+                .currentParticipants(roomDTO.getCurrentParticipants())
+                .participantIDs(roomDTO.getParticipantIDs())
+                .hostUserEndpoint(roomDTO.getHostUserEndpoint())
+                .mapFileURL(roomDTO.getMapFileURL())
                 .build();
     }
 }

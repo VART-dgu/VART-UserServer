@@ -1,4 +1,4 @@
-package com.example.vrt.global;
+package com.example.vrt.global.websocket;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

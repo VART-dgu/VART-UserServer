@@ -1,11 +1,7 @@
-package com.example.vrt.global;
+package com.example.vrt.global.websocket;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
