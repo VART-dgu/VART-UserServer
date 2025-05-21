@@ -9,7 +9,7 @@ import java.util.List;
 @Getter @AllArgsConstructor
 @Builder
 public class RoomDTO {
-    private String id;
+    private Long id;
     private String hostUserId;
     private int maxParticipants;
     private int currentParticipants;

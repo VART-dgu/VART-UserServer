@@ -1,7 +1,6 @@
 package com.example.vrt.domain.room.service;
 
-import com.example.vrt.domain.room.dto.RoomJoinRequestDTO;
-import com.example.vrt.domain.room.dto.RoomJoinResponseDTO;
+import com.example.vrt.domain.room.dto.*;
 import com.example.vrt.domain.room.entity.Room;
 import com.example.vrt.domain.room.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +15,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public RoomJoinResponseDTO joinRoom(RoomJoinRequestDTO requestDTO) {
         // 1. roomId로 방 조회
-        Room room = roomRepository.findById(requestDTO.getRoomId())
+        Room room = roomRepository.findById(requestDTO.getId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 방입니다."));
 
         // 2. 인원수 제한 확인
@@ -42,7 +41,7 @@ public class RoomServiceImpl implements RoomService {
         // 6. 응답 DTO 생성 및 반환
         return new RoomJoinResponseDTO(
                 room.getId(),
-                room.getGallery().getId(),
+                room.getGallery().getGalleryId(),
                 room.getHostUserEndpoint(),
                 isHost,
                 room.getMapFileURL(),

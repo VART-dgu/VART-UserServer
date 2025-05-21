@@ -1,11 +1,18 @@
 package com.example.vrt.domain.user.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.*;
 
-@Data
+@Entity @Builder
+@Getter
 @AllArgsConstructor
+@NoArgsConstructor
 public class User {
-    private String id;
+    @Id @GeneratedValue
+    private Long id;
+
+    private String userId;
     private String name;
 }

@@ -2,21 +2,19 @@ package com.example.vrt.domain.room.entity;
 
 import com.example.vrt.domain.gallery.domain.Gallery;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "room")
-@Getter
-@Setter
+@Getter @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Room {
-
-    @Id
-    private String id; // roomId
+    @Id @GeneratedValue
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "gallery_id", nullable = false)

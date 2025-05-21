@@ -6,8 +6,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class RoomJoinRequestDTO {
-    private String roomId;
-    private String galleryId;
+    private Long id;
+    private Long galleryId;
     private String userId;
     private String userEndpoint;
 }

@@ -10,7 +10,9 @@ import lombok.Setter;
 public class Gallery {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Long id;
+
+    private String galleryId;
     private String artist;
     private String description;
     private Integer visitCount;
