@@ -1,10 +1,8 @@
 package com.example.vrt.domain.room.service;
 
-import com.example.vrt.domain.room.dto.RoomDTO;
 import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
 import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.entity.Room;
-import com.example.vrt.domain.room.mapper.RoomMapper;
 import com.example.vrt.domain.room.repository.RoomRepository;
 import com.example.vrt.global.ping.PingResult;
 import com.example.vrt.global.ping.PingService;
@@ -67,5 +65,6 @@ public class QuitRoomService {
         }
 
         //3. 새로운 호스트 broadcast
+        return RoomQuitResponseDTO.builder().build();
     }
 }

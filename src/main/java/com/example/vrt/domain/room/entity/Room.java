@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "room")
 @Getter @Setter
-@NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Room {
+    @Id @GeneratedValue
+    private Long seq;
 
-    @Id
     private String id; // roomId
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

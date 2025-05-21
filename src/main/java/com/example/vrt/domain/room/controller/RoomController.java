@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class RoomController {
     private final RoomService roomService;
-    private final SessionManager sessionManager;
 
     @PostMapping("/join")
     public ResponseEntity<RoomJoinResponseDTO> joinRoom(@RequestBody RoomJoinRequestDTO requestDTO) {

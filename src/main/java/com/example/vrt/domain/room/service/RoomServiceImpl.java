@@ -2,9 +2,7 @@ package com.example.vrt.domain.room.service;
 
 import com.example.vrt.domain.room.dto.*;
 import com.example.vrt.domain.room.entity.Room;
-import com.example.vrt.domain.room.mapper.RoomMapper;
 import com.example.vrt.domain.room.repository.RoomRepository;
-import com.example.vrt.global.websocket.PingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
-    private final PingService pingService;
 
     @Override
     public RoomJoinResponseDTO joinRoom(RoomJoinRequestDTO requestDTO) {
@@ -44,7 +41,7 @@ public class RoomServiceImpl implements RoomService {
         // 6. 응답 DTO 생성 및 반환
         return new RoomJoinResponseDTO(
                 room.getId(),
-                room.getGallery().getId(),
+                room.getGallery().getGalleryId(),
                 room.getHostUserEndpoint(),
                 isHost,
                 room.getMapFileURL(),
