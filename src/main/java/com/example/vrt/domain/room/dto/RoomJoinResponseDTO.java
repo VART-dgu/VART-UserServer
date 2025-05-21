@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class RoomJoinResponseDTO {
-    private String roomId;
+    private Long roomId;
     private String galleryId;
     private String hostUserEndpoint;
     private boolean isHost;

@@ -23,7 +23,7 @@ public class QuitRoomService {
         //1. 사용자 제거
 
         //방 조회
-        Room room = roomRepository.findById(requestDTO.getRoomId())
+        Room room = roomRepository.findById(requestDTO.getId())
                 .orElseThrow(() -> new NoSuchElementException("Room을 찾을 수 없음"));
 
         //방 사용자에서 사용자 제거

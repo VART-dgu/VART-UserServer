@@ -22,7 +22,7 @@ public class GalleryInfoService {
     private final RoomRepository roomRepository;
 
     @Transactional(readOnly = true)
-    public GalleryInfoDTO getGalleryInfo(String galleryId) {
+    public GalleryInfoDTO getGalleryInfo(Long galleryId) {
         GalleryDTO galleryDTO = GalleryMapper.toGalleryDTO(galleryRepository.findById(galleryId).orElseThrow(()-> new IllegalArgumentException("해당 갤러리가 존재하지 않습니다. ID: " + galleryId)));
         List<RoomDTO> roomDTOs = roomRepository.findAllByGallery_Id(galleryId).stream()
                 .map(room -> RoomMapper.toRoomDTO(room))

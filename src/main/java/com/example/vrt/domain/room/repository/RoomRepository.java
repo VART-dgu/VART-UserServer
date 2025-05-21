@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface RoomRepository extends JpaRepository<Room, String> {
+public interface RoomRepository extends JpaRepository<Room, Long> {
     // Room의 ID는 roomId (String) 기준으로 식별
     // roomRepository.findById(roomId) : 사용자 방 입장
     // room.addParticipant(userId) + roomRepository.save(room) : 입장후 참여자 수 증가
@@ -20,5 +20,5 @@ public interface RoomRepository extends JpaRepository<Room, String> {
       LEFT JOIN FETCH r.participantIDs
       WHERE r.gallery.id = :galleryId
     """)
-    List<Room> findAllByGallery_Id(@Param("galleryId") String galleryId);
+    List<Room> findAllByGallery_Id(@Param("galleryId") Long galleryId);
 }

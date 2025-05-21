@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class RoomQuitRequestDTO {
-    String roomId;
+    Long id;
     String galleryId;
     String userId;
     Boolean isHost;

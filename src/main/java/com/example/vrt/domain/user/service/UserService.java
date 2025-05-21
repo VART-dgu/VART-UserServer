@@ -13,7 +13,10 @@ public class UserService {
     private final UserRepository userRepository;
 
     public void register(UserDTO dto) {
-        User user = new User(dto.getId(), dto.getName());
+        User user = User.builder()
+                .userId(dto.getId())
+                .name(dto.getName())
+                .build();
         userRepository.save(user);
     }
 

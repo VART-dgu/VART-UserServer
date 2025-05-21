@@ -15,7 +15,7 @@ public class RoomServiceImpl implements RoomService {
     @Override
     public RoomJoinResponseDTO joinRoom(RoomJoinRequestDTO requestDTO) {
         // 1. roomId로 방 조회
-        Room room = roomRepository.findById(requestDTO.getRoomId())
+        Room room = roomRepository.findById(requestDTO.getId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 방입니다."));
 
         // 2. 인원수 제한 확인

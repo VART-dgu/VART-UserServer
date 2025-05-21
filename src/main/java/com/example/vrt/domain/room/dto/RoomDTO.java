@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class RoomDTO {
-    private String id;
+    private Long id;
     private String galleryId;
     private String hostUserId;
     private String hostUserEndpoint;

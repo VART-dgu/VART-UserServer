@@ -14,9 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Room {
     @Id @GeneratedValue
-    private Long seq;
-
-    private String id; // roomId
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "gallery_id", nullable = false)
