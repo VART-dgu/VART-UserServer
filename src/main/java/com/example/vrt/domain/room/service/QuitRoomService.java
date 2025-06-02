@@ -31,7 +31,7 @@ public class QuitRoomService {
 
         for(int i = 0; i < participantIDs.size(); i++){
             if(participantIDs.get(i).equals(requestDTO.getUserId())){
-                room.getParticipantIDs().remove(i);
+                room.removeParticipant(requestDTO.getUserId());
                 break;
             }
         }
@@ -48,7 +48,7 @@ public class QuitRoomService {
                 if (pingResult.isSuccess()) {
                     latencies[i] = pingResult.getLatency();
                 } else {
-                    latencies[i] = Long.MAX_VALUE;  // 실패 시 최하값이 되지 않도록
+                    latencies[i] = Long.MAX_VALUE;  // 실패 시 MAX_VALUE 삽입
                 }
             }
 
@@ -65,6 +65,8 @@ public class QuitRoomService {
         }
 
         //3. 새로운 호스트 broadcast
+
+
         return RoomQuitResponseDTO.builder().build();
     }
 }
