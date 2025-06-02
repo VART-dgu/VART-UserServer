@@ -2,15 +2,13 @@ package com.example.vrt.global.websocket;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-import org.springframework.web.socket.CloseStatus;
+import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketSession;
-
 import java.net.InetSocketAddress;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
 public class SessionRepository {
     //sessionId 기반으로 WebSocketSession 객체 저장
