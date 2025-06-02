@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.WebSocketSession;
 
+import java.net.InetSocketAddress;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
@@ -29,5 +30,13 @@ public class SessionRepository {
     }
 
     //사용자의 endpoint 가져오기
+    public String getClientEndpoint(String sessionId){
+        WebSocketSession session = sessionMap.get(sessionId);
+        if(session == null || !session.isOpen()){
+            return null;
+        }
 
+        InetSocketAddress address = session.getRemoteAddress();
+        return (address != null) ? address.toString() : null;
+    }
 }
