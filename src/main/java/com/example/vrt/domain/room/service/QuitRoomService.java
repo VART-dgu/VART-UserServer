@@ -56,6 +56,12 @@ public class QuitRoomService {
 
         //3. 새로운 호스트 broadcast
 
-        return RoomQuitResponseDTO.builder().build();
+        return RoomQuitResponseDTO.builder()
+                .roomId(room.getId())
+                .galleryId(room.getGallery().getGalleryId())
+                .hostUserEndpoint(room.getHostUserEndpoint())
+                .isHost(true)
+                .mapFileURL(room.getMapFileURL())
+                .build();
     }
 }
