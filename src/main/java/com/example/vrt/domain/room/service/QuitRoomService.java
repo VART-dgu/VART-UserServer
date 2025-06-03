@@ -4,20 +4,21 @@ import com.example.vrt.domain.room.dto.RoomQuitRequestDTO;
 import com.example.vrt.domain.room.dto.RoomQuitResponseDTO;
 import com.example.vrt.domain.room.entity.Room;
 import com.example.vrt.domain.room.repository.RoomRepository;
-import com.example.vrt.global.ping.PingResult;
-import com.example.vrt.global.ping.PingService;
+import com.example.vrt.global.ping.WebSocketPingService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class QuitRoomService {
     private final RoomRepository roomRepository;
-    private final PingService pingService;
+    private final WebSocketPingService webSocketPingService;
 
     public RoomQuitResponseDTO quitRoom(RoomQuitRequestDTO requestDTO) {
         //1. 사용자 제거
@@ -42,30 +43,18 @@ public class QuitRoomService {
 
 
             //각 participant에 ping 채우기
-            for (int i = 0; i < participantIDs.size(); i++) {
-                PingResult pingResult = pingService.ping(participantIDs.get(i));
+            Optional<String> newHostId = webSocketPingService.findFastestUser(room.getParticipantIDs());
 
-                if (pingResult.isSuccess()) {
-                    latencies[i] = pingResult.getLatency();
-                } else {
-                    latencies[i] = Long.MAX_VALUE;  // 실패 시 MAX_VALUE 삽입
-                }
-            }
-
-            //최솟값 index 찾기
-            int minIdx = 0;
-            for (int i = 1; i < latencies.length; i++) {
-                if (latencies[i] < latencies[minIdx]) {
-                    minIdx = i;
-                }
-            }
-
-            String newHostId = participantIDs.get(minIdx);
-            room.setHostUserId(newHostId);
+            newHostId.ifPresentOrElse(hostId -> {
+                room.setHostUserEndpoint(hostId);
+                log.info("새 호스트로 설정된 사용자 ID: {}", hostId);
+            },
+                    ()-> {
+                        log.warn("호스트를 선정할 수 있는 유효한 사용자 응답이 없습니다.");
+                    });
         }
 
         //3. 새로운 호스트 broadcast
-
 
         return RoomQuitResponseDTO.builder().build();
     }
