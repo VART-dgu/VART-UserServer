@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class GalleryDTO {
-    private String id;
+    private Long id;
     private String artist;
     private String description;
     private Integer visitCount;

@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class RoomJoinResponseDTO {
     private Long roomId;
-    private String galleryId;
+    private Long galleryId;
     private String hostUserEndpoint;
     private boolean isHost;
     private String mapFileURL;

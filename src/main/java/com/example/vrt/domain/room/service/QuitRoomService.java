@@ -79,7 +79,7 @@ public class QuitRoomService {
 
         return RoomQuitResponseDTO.builder()
                 .roomId(room.getId())
-                .galleryId(room.getGallery().getGalleryId())
+                .galleryId(room.getGallery().getId())
                 .hostUserEndpoint(room.getHostUserEndpoint())
                 .isHost(true)
                 .mapFileURL(room.getMapFileURL())

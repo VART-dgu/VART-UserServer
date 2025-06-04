@@ -9,7 +9,7 @@ import java.util.List;
 @Getter @AllArgsConstructor
 @Builder
 public class GalleryInfoDTO {
-    private String id;
+    private Long id;
     private String artist;
     private String description;
     private List<RoomDTO> roomList;

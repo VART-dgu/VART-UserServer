@@ -8,7 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class RoomQuitResponseDTO {
     Long roomId;
-    String galleryId;
+    Long galleryId;
     String hostUserEndpoint;
     Boolean isHost;
     String mapFileURL;
