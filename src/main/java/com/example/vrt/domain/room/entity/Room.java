@@ -25,6 +25,8 @@ public class Room {
 
     private int maxParticipants = 30;
     private int currentParticipants = 0;
+
+    @Column(length = 50000)
     private String mapFileURL;
 
     @ElementCollection

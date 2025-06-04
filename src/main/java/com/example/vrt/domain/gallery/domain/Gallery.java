@@ -12,7 +12,6 @@ public class Gallery {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String galleryId;
     private String artist;
     private String description;
     private Integer visitCount;
